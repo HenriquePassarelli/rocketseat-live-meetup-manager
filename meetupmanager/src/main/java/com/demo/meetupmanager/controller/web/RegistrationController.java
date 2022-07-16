@@ -4,6 +4,7 @@ import com.demo.meetupmanager.controller.dto.RegistrationDTO;
 import com.demo.meetupmanager.model.Registration;
 import com.demo.meetupmanager.service.RegistrationService;
 import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,11 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     private ModelMapper modelMapper;
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
 
     public RegistrationController(RegistrationService registrationService, ModelMapper modelMapper) {
         this.registrationService = registrationService;
